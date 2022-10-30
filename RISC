@@ -1,0 +1,31 @@
+# include <stdio.h>
+# define MAX_SIZE 5
+// 삽입 정렬
+
+void sort(int list[], int a) {
+    int i, j, data;
+    // 인텍스 0은 정렬됨.
+
+    for (i = 1; i < a; i++) {
+        data = list[i];
+        // 현재 삽입될 숫자인 i번째 정수를 key 변수로 복사
+        // i-1번째부터 역순으로 조사
+        // j 값은 음수 X
+        // key 값보다 정렬된 배열에 있는 값이 크면 j번째를 j+1번째로 이동
+        for (j = i - 1; j >= 0 && list[j] > data; j--) {
+            list[j + 1] = list[j];
+
+            list[j + 1] = data;
+        }
+    }void main() {
+        int i;
+        int a = MAX_SIZE;
+        int list[a] = { 8, 5, 6, 2, 4 };
+
+        sort(list, a);
+        // 정렬 결과 출력
+
+        for (i = 0; i < a; i++) {
+            printf("%d\n", list[i]);
+        }
+    }
